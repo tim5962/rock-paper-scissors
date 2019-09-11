@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Rock Paper Scissors</title>
+    </head>
+    <body>
+        <script>
+            let playerChoice = prompt('Rock, paper, or scissors?').toUpperCase();
+            let computerChoice = computerPlay();
+
+            function computerPlay() {
+                let options = ['ROCK','PAPER','SCISSORS'];
+                let rand = Math.floor(Math.random() * options.length);
+
+                return options[rand];
+            }
+
+            function playRound(playerChoice, computerChoice) {
+                let gameResult = playerChoice + computerChoice;
+
+                switch(gameResult) {
+                    case 'ROCKROCK':
+                      console.log('It\'s a tie!');
+                      break;
+
+                    case 'ROCKPAPER':
+                      console.log('You lose! Paper covers rock.');
+                      break;
+
+                    case 'ROCKSCISSORS':
+                      console.log('You win! rock beats paper.');
+                      break;
+
+                    case 'PAPERROCK':
+                      console.log('You win! Paper covers rock.');
+                      break;
+
+                    case 'PAPERPAPER':
+                      console.log('It\'s a tie!');
+                      break;
+
+                    case 'PAPERSCISSORS': 
+                      console.log('You lose! Scissors cut paper.');
+                      break;
+
+                    case 'SCISSORSROCK': 
+                      console.log('You lose! Rock breaks scissors.');
+                      break;
+
+                    case 'SCISSORSPAPER': 
+                      console.log('You win! Scissors cut paper.');
+                      break;
+                    
+                    case 'SCISSORSSCISSORS': 
+                      console.log('It\'s a tie!');
+                      break;
+                }
+            }
+        </script>
+    </body>
+</html>
