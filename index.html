@@ -7,8 +7,6 @@
         <script>
             let playerChoice = prompt('Rock, paper, or scissors?').toUpperCase();
             let computerChoice = getComputerChoice();
-            let playerScore
-            let computerScore
 
             function getComputerChoice() {
                 const options = ['ROCK','PAPER','SCISSORS'];
@@ -17,31 +15,29 @@
                 return options[rand];
             }
 
-            function playRound() {
-              let roundChoice = playerChoice + computerChoice;
+            console.log('Player choice: ' + playerChoice);
+            console.log('Computer choice: ' + computerChoice);
+            console.log(playRound(playerChoice, computerChoice));
 
-              if (roundChoice === 'ROCKROCK') {
-                return 'It\'s a tie!';
-              } else if (roundChoice === 'ROCKPAPER') {
-                return 'You lose! Paper covers rock.';
-              } else if (roundChoice === 'ROCKSCISSORS') {
-                return 'You win! Rock breaks scissors.';
-              } else if (roundChoice === 'PAPERROCK') {
-                return 'You win! Paper covers rock.';
-              } else if (roundChoice === 'PAPERPAPER') {
-                return 'It\'s a tie!';
-              } else if (roundChoice === 'PAPERSCISSORS') {
-                return 'You lose! Scissors cut paper.';
-              } else if (roundChoice === 'SCISSORSROCK') {
-                return 'You lose! Rock breaks scissors.';
-              } else if (roundChoice === 'SCISSORSPAPER') {
-                return 'You win! Scissors cut paper.';
-              } else if (roundChoice === 'SCISSORSSCISSORS') {
-                return 'It\'s a tie!';
-              } else {
-                return 'You didn\'t enter a valid choice.';
+              function playRound(playerSelection, computerSelection) {
+                if (playerSelection === computerSelection) {
+                  return 'It\'s a tie!';
+                } else if (playerSelection === 'ROCK' && computerSelection === 'PAPER') {
+                  return 'You lose! Paper covers rock.';
+                } else if (playerSelection === 'ROCK' && computerSelection === 'SCISSORS') {
+                  return 'You win! Rock breaks scissors.';
+                } else if (playerSelection === 'PAPER' && computerSelection === 'ROCK') {
+                  return 'You win! Paper covers rock.';
+                } else if (playerSelection === 'PAPER' && computerSelection === 'SCISSORS') {
+                  return 'You lose! Scissors cut paper.';
+                } else if (playerSelection === 'SCISSORS' && computerSelection === 'ROCK') {
+                  return 'You lose! Rock breaks scissors.';
+                } else if (playerSelection === 'SCISSORS' && computerSelection === 'PAPER') {
+                  return 'You win! Scissors cut paper.';
+                } else {
+                  return 'You didn\'t enter a valid choice. Try again?';
+                }
               }
-            }
         </script>
     </body>
 </html>
