@@ -5,68 +5,86 @@
     </head>
     <body>
         <script>
-          
-            function playRound(player, computer) {
+          function playGame() {
+
+            let playerScore = 0;
+            let computerScore = 0;
+            let roundNumber = 1;
+
+
+            function playRound() {
+              const options = ['ROCK', 'PAPER', 'SCISSORS'];
               const playerChoice = prompt('Rock, paper, or scissors?').toUpperCase();
+              const computerChoice = options[Math.floor(Math.random() * options.length)];
 
-              function computerChoice() {
-                const options = ['ROCK','PAPER','SCISSORS'];
-                let rand = Math.floor(Math.random() * options.length);
-                return options[rand];
-              };
+              console.log('================================');
+              console.log('ROUND NUMBER ' + roundNumber + ':');
 
-              console.log('Player choice: ' + playerChoice);
-              console.log('Computer choice: ' + computerChoice());
-
-              if (player === computer) {
-                return 'It\'s a tie!';
-              } else if (player === 'ROCK' && computer === 'PAPER') {
-                return 'You lose! Paper covers rock.';
-              } else if (player === 'ROCK' && computer === 'SCISSORS') {
-                return 'You win! Rock breaks scissors.';
-              } else if (player === 'PAPER' && computer === 'ROCK') {
-                return 'You win! Paper covers rock.';
-              } else if (player === 'PAPER' && computer === 'SCISSORS') {
-                return 'You lose! Scissors cut paper.';
-              } else if (player === 'SCISSORS' && computer === 'ROCK') {
-                return 'You lose! Rock breaks scissors.';
-              } else if (player === 'SCISSORS' && computer === 'PAPER') {
-                return 'You win! Scissors cut paper.';
+              if (playerChoice === computerChoice) {
+                console.log('It\'s a tie!');
+                console.log('Player score: ' + playerScore);
+                console.log('Computer score: ' + computerScore);
+              } else if (playerChoice === 'ROCK' && computerChoice === 'PAPER') {
+                ++computerScore;
+                console.log('You lose! Paper covers rock.');
+                console.log('Player score: ' + playerScore);
+                console.log('Computer score: ' + computerScore);
+              } else if (playerChoice === 'ROCK' && computerChoice === 'SCISSORS') {
+                ++playerScore;
+                console.log('You win! Rock breaks scissors.');
+                console.log('Player score: ' + playerScore);
+                console.log('Computer score: ' + computerScore);
+              } else if (playerChoice === 'PAPER' && computerChoice === 'ROCK') {
+                ++playerScore;
+                console.log('You win! Paper covers rock.');
+                console.log('Player score: ' + playerScore);
+                console.log('Computer score: ' + computerScore);
+              } else if (playerChoice === 'PAPER' && computerChoice === 'SCISSORS') {
+                ++computerScore;
+                console.log('You lose! Scissors cut paper.');
+                console.log('Player score: ' + playerScore);
+                console.log('Computer score: ' + computerScore);
+              } else if (playerChoice === 'SCISSORS' && computerChoice === 'ROCK') {
+                ++computerScore;
+                console.log('You lose! Rock breaks scissors.');
+                console.log('Player score: ' + playerScore);
+                console.log('Computer score: ' + computerScore);
+              } else if (playerChoice === 'SCISSORS' && computerChoice === 'PAPER') {
+                ++playerScore;
+                console.log('You win! Scissors cut paper.');
+                console.log('Player score: ' + playerScore);
+                console.log('Computer score: ' + computerScore);
               } else {
-                return 'You didn\'t enter a valid choice. Try again?';
+                console.log('You didn\'t enter a valid choice. Try again?');
+                console.log('Player score: ' + playerScore);
+                console.log('Computer score: ' + computerScore);
               }
 
-              console.log(playRound(playerChoice, computerChoice()));
+              console.log('================================');
+              ++roundNumber;
             }
 
-
-            /*
-
-            let playerScore;
-            let computerScore;
-            let round = 'You win!';
-
-            function updatePlayerScore() {
-              if (round.includes('win')) {
-                playerScore += 1;
-              } else {
-                playerScore += 0;
-              }              
+            let i = 0
+            while (i < 5) {
+              playRound();
+              i++;
             }
 
-            function updateComputerScore() {
-              if (round.includes('lose')) {
-                computerScore += 1;
-              } else {
-                computerScore += 0;
-              }              
+            console.log('================================');
+            console.log('***Final results***');
+            console.log('playerScore: ' + playerScore);
+            console.log('Computer score: ' + computerScore);
+            if (playerScore > computerScore) {
+              console.log('Wow, you won!');
+            } else if (playerScore < computerScore) {
+              console.log('Dang, you lost!');
+            } else {
+              console.log('It was a tie! Wow');
             }
+            console.log('================================');
+          }
 
-            console.log('Player score: ' + updatePlayerScore());
-            console.log('Computer score: ' + updateComputerScore());
-            */
-
-            
+          playGame();
         </script>
     </body>
 </html>
