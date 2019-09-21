@@ -18,48 +18,35 @@
               const computerChoice = options[Math.floor(Math.random() * options.length)];
 
               console.log('================================');
-              console.log('ROUND NUMBER ' + roundNumber + ':');
+              console.log('ROUND ' + roundNumber + ':');
+              console.log('/// The player chose... ' + playerChoice + '!');
+              console.log('/// The computer chose... ' + computerChoice + '!');
 
               if (playerChoice === computerChoice) {
-                console.log('It\'s a tie!');
-                console.log('Player score: ' + playerScore);
-                console.log('Computer score: ' + computerScore);
+                console.log('It was a tie!');
               } else if (playerChoice === 'ROCK' && computerChoice === 'PAPER') {
                 ++computerScore;
-                console.log('You lose! Paper covers rock.');
-                console.log('Player score: ' + playerScore);
-                console.log('Computer score: ' + computerScore);
+                console.log('You lost! Paper covers rock.');
               } else if (playerChoice === 'ROCK' && computerChoice === 'SCISSORS') {
                 ++playerScore;
-                console.log('You win! Rock breaks scissors.');
-                console.log('Player score: ' + playerScore);
-                console.log('Computer score: ' + computerScore);
+                console.log('You won! Rock breaks scissors.');
               } else if (playerChoice === 'PAPER' && computerChoice === 'ROCK') {
                 ++playerScore;
-                console.log('You win! Paper covers rock.');
-                console.log('Player score: ' + playerScore);
-                console.log('Computer score: ' + computerScore);
+                console.log('You won! Paper covers rock.');
               } else if (playerChoice === 'PAPER' && computerChoice === 'SCISSORS') {
                 ++computerScore;
-                console.log('You lose! Scissors cut paper.');
-                console.log('Player score: ' + playerScore);
-                console.log('Computer score: ' + computerScore);
+                console.log('You lost! Scissors cut paper.');
               } else if (playerChoice === 'SCISSORS' && computerChoice === 'ROCK') {
                 ++computerScore;
-                console.log('You lose! Rock breaks scissors.');
-                console.log('Player score: ' + playerScore);
-                console.log('Computer score: ' + computerScore);
+                console.log('You lost! Rock breaks scissors.');
               } else if (playerChoice === 'SCISSORS' && computerChoice === 'PAPER') {
                 ++playerScore;
-                console.log('You win! Scissors cut paper.');
-                console.log('Player score: ' + playerScore);
-                console.log('Computer score: ' + computerScore);
+                console.log('You won! Scissors cut paper.');
               } else {
                 console.log('You didn\'t enter a valid choice. Try again?');
-                console.log('Player score: ' + playerScore);
-                console.log('Computer score: ' + computerScore);
               }
 
+              console.log('Player: ' + playerScore + ' / Computer: ' + computerScore);
               console.log('================================');
               ++roundNumber;
             }
@@ -72,8 +59,8 @@
 
             console.log('================================');
             console.log('***Final results***');
-            console.log('playerScore: ' + playerScore);
-            console.log('Computer score: ' + computerScore);
+            console.log('Player\'s final score: ' + playerScore);
+            console.log('Computer\'s final score: ' + computerScore);
             if (playerScore > computerScore) {
               console.log('Wow, you won!');
             } else if (playerScore < computerScore) {
