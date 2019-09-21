@@ -5,39 +5,68 @@
     </head>
     <body>
         <script>
-            let playerChoice = prompt('Rock, paper, or scissors?').toUpperCase();
-            let computerChoice = getComputerChoice();
+          
+            function playRound(player, computer) {
+              const playerChoice = prompt('Rock, paper, or scissors?').toUpperCase();
 
-            function getComputerChoice() {
+              function computerChoice() {
                 const options = ['ROCK','PAPER','SCISSORS'];
                 let rand = Math.floor(Math.random() * options.length);
-
                 return options[rand];
+              };
+
+              console.log('Player choice: ' + playerChoice);
+              console.log('Computer choice: ' + computerChoice());
+
+              if (player === computer) {
+                return 'It\'s a tie!';
+              } else if (player === 'ROCK' && computer === 'PAPER') {
+                return 'You lose! Paper covers rock.';
+              } else if (player === 'ROCK' && computer === 'SCISSORS') {
+                return 'You win! Rock breaks scissors.';
+              } else if (player === 'PAPER' && computer === 'ROCK') {
+                return 'You win! Paper covers rock.';
+              } else if (player === 'PAPER' && computer === 'SCISSORS') {
+                return 'You lose! Scissors cut paper.';
+              } else if (player === 'SCISSORS' && computer === 'ROCK') {
+                return 'You lose! Rock breaks scissors.';
+              } else if (player === 'SCISSORS' && computer === 'PAPER') {
+                return 'You win! Scissors cut paper.';
+              } else {
+                return 'You didn\'t enter a valid choice. Try again?';
+              }
+
+              console.log(playRound(playerChoice, computerChoice()));
             }
 
-            console.log('Player choice: ' + playerChoice);
-            console.log('Computer choice: ' + computerChoice);
-            console.log(playRound(playerChoice, computerChoice));
 
-              function playRound(playerSelection, computerSelection) {
-                if (playerSelection === computerSelection) {
-                  return 'It\'s a tie!';
-                } else if (playerSelection === 'ROCK' && computerSelection === 'PAPER') {
-                  return 'You lose! Paper covers rock.';
-                } else if (playerSelection === 'ROCK' && computerSelection === 'SCISSORS') {
-                  return 'You win! Rock breaks scissors.';
-                } else if (playerSelection === 'PAPER' && computerSelection === 'ROCK') {
-                  return 'You win! Paper covers rock.';
-                } else if (playerSelection === 'PAPER' && computerSelection === 'SCISSORS') {
-                  return 'You lose! Scissors cut paper.';
-                } else if (playerSelection === 'SCISSORS' && computerSelection === 'ROCK') {
-                  return 'You lose! Rock breaks scissors.';
-                } else if (playerSelection === 'SCISSORS' && computerSelection === 'PAPER') {
-                  return 'You win! Scissors cut paper.';
-                } else {
-                  return 'You didn\'t enter a valid choice. Try again?';
-                }
-              }
+            /*
+
+            let playerScore;
+            let computerScore;
+            let round = 'You win!';
+
+            function updatePlayerScore() {
+              if (round.includes('win')) {
+                playerScore += 1;
+              } else {
+                playerScore += 0;
+              }              
+            }
+
+            function updateComputerScore() {
+              if (round.includes('lose')) {
+                computerScore += 1;
+              } else {
+                computerScore += 0;
+              }              
+            }
+
+            console.log('Player score: ' + updatePlayerScore());
+            console.log('Computer score: ' + updateComputerScore());
+            */
+
+            
         </script>
     </body>
 </html>
